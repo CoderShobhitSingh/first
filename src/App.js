@@ -24,12 +24,23 @@ function App() {
     let bmiValue = (weightNum / (heightInInches * heightInInches)) * 703;
     setBmi(bmiValue.toFixed(1));
 
-    if (bmiValue < 18.5) {
-      setMessage("You are underweight");
-    } else if (bmiValue >= 18.5 && bmiValue < 24.9) {
-      setMessage("You are a healthy weight");
+    // Determine BMI category
+    if (bmiValue < 16) {
+      setMessage("Severe Thinness");
+    } else if (bmiValue >= 16 && bmiValue < 17) {
+      setMessage("Moderate Thinness");
+    } else if (bmiValue >= 17 && bmiValue < 18.5) {
+      setMessage("Mild Thinness");
+    } else if (bmiValue >= 18.5 && bmiValue < 25) {
+      setMessage("Normal");
+    } else if (bmiValue >= 25 && bmiValue < 30) {
+      setMessage("Overweight");
+    } else if (bmiValue >= 30 && bmiValue < 35) {
+      setMessage("Obese Class I");
+    } else if (bmiValue >= 35 && bmiValue < 40) {
+      setMessage("Obese Class II");
     } else {
-      setMessage("You are overweight");
+      setMessage("Obese Class III");
     }
   };
 
@@ -72,7 +83,7 @@ function App() {
           </div>
           <div className="center">
             <h3>Your BMI is: {bmi}</h3>
-            <p>{message}</p>
+            <p>Category: {message}</p>
           </div>
         </form>
       </div>
