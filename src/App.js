@@ -19,9 +19,9 @@ function App() {
       return;
     }
 
-    // Convert height from feet to inches and calculate BMI
-    let heightInInches = heightNum * 12;
-    let bmiValue = (weightNum / (heightInInches * heightInInches)) * 703;
+    // Convert height from cm to meters and calculate BMI
+    let heightInMeters = heightNum / 100;
+    let bmiValue = weightNum / (heightInMeters * heightInMeters);
     setBmi(bmiValue.toFixed(1));
 
     // Determine BMI category
@@ -64,7 +64,7 @@ function App() {
             />
           </div>
           <div>
-            <label>Height (feet)</label>
+            <label>Height (cm)</label>
             <input
               type="number"
               step="0.1"
